@@ -1,0 +1,24 @@
+{
+  "name": "csc437_lab2",
+  "version": "1.0.0",
+  "description": "Lab 2—Semantic Markup in HTML",
+  "homepage": "https://github.com/nguytinh/csc437_lab2#readme",
+  "bugs": {
+    "url": "https://github.com/nguytinh/csc437_lab2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguytinh/csc437_lab2.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+  ,
+  "workspaces": [
+      "packages/*"
+  ]
+}
