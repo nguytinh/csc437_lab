@@ -1,4 +1,4 @@
-  body {
+body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     color: var(--color-text);
@@ -6,7 +6,19 @@
     margin: 0;
     padding: var(--space-md);
   }
-
+  
+  header {
+    background-color: var(--color-background-header);
+    color: var(--color-text-header);
+    padding: var(--space-md);
+    margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) var(--space-md);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: var(--font-size-heading);
+  }
+  
   nav {
     border-bottom: 2px solid var(--color-border);
     padding-bottom: var(--space-sm);
@@ -25,24 +37,14 @@
     text-decoration: underline;
   }
   
-  header {
-    background-color: var(--color-background-header);
-    color: var(--color-text-header);
-    padding: var(--space-md);
-    margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) var(--space-md);
-  }
-   
-  header h1 {
-    margin: 0;
-    font-size: var(--font-size-heading);
-  }
-  
   h1 {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-heading);
     color: var(--color-text);
   }
   
   h2 {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-subheading);
     color: var(--color-text);
     margin-top: var(--space-lg);
@@ -65,4 +67,20 @@
   
   ul {
     line-height: 1.8;
+  }
+
+  svg.icon {
+    display: inline;
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: middle;
+    fill: currentColor;
+    stroke: currentColor;
+    margin-right: var(--space-xs);
+  }
+
+  .next-to {
+    display: flex;
+    align-items: center; /* vertically center icon and text */
+    gap: 0.5rem;         /* space between icon and text */
   }

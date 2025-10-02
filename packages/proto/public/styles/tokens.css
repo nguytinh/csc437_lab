@@ -23,7 +23,8 @@
   --space-lg: 30px;
   
   /* fonts */
-  --font-family: 'Trebuchet MS', sans-serif;
+  --font-family: "Outfit", sans-serif;
+  --font-family-heading: "Ramabhadra", sans-serif;
   --font-size-base: 16px;
   --font-size-heading: 24px;
   --font-size-subheading: 20px;
