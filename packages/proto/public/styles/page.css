@@ -1,0 +1,68 @@
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-background-page);
+    margin: 0;
+    padding: var(--space-md);
+  }
+
+  nav {
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+  
+  nav a {
+    margin-right: var(--space-md);
+    color: var(--color-link);
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+  
+  header {
+    background-color: var(--color-background-header);
+    color: var(--color-text-header);
+    padding: var(--space-md);
+    margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) var(--space-md);
+  }
+   
+  header h1 {
+    margin: 0;
+    font-size: var(--font-size-heading);
+  }
+  
+  h1 {
+    font-size: var(--font-size-heading);
+    color: var(--color-text);
+  }
+  
+  h2 {
+    font-size: var(--font-size-subheading);
+    color: var(--color-text);
+    margin-top: var(--space-lg);
+  }
+  
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+  
+  ul {
+    line-height: 1.8;
+  }
