@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Series</title>
+    <title>Series - Gaming Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,65 +12,143 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="index.html">
+    <header>
+        <a href="index.html" class="header-brand">
             <svg class="icon">
                 <use href="/icons/gaming.svg#game"/>
             </svg>
-            Games
+            Gaming Hub
         </a>
-        <a href="consoles.html">
-            <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
-            Consoles
-        </a>
-        <a href="genres.html">
-            <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
-            Genres
-        </a>
-        <a href="publishers.html">
-            <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
-            Publishers
-        </a>
-        <a href="series.html">
-            <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
-            Series
-        </a>
-        <a href="players.html">
-            <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
-            Players
-        </a>
-    </nav>
+        
+        <nav>
+            <a href="index.html">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#game"/>
+                </svg>
+                <span>Games</span>
+            </a>
+            <a href="consoles.html">
+                <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
+                <span>Consoles</span>
+            </a>
+            <a href="genres.html">
+                <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
+                <span>Genres</span>
+            </a>
+            <a href="publishers.html">
+                <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
+                <span>Publishers</span>
+            </a>
+            <a href="series.html">
+                <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
+                <span>Series</span>
+            </a>
+            <a href="players.html">
+                <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
+                <span>Players</span>
+            </a>
+        </nav>
+        
+        <div class="user-info">
+            <span class="user-name">Player One</span>
+            <div class="user-avatar">P1</div>
+        </div>
+    </header>
 
-    <div class="next-to">
-        <svg class="icon">
-          <use href="/icons/gaming.svg#series"></use>
-        </svg>
-        <h1>Series</h1>
-      </div>
-    <p>Collections of related games sharing characters, worlds, or gameplay mechanics.</p>
+    <main>
+        <div class="page-header">
+            <div class="next-to">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#series"></use>
+                </svg>
+                <h1>Series</h1>
+            </div>
+            <p>Collections of related games sharing characters, worlds, or gameplay mechanics.</p>
+        </div>
 
-    <h2>Popular Game Series:</h2>
-    <ul>
-        <li>The Legend of Zelda Series</li>
-        <li>Halo Series</li>
-        <li>Super Mario Series</li>
-        <li>FIFA Series</li>
-        <li>Animal Crossing Series</li>
-    </ul>
+        <section class="content-section">
+            <h2>Popular Game Series:</h2>
+            <ul class="item-list">
+                <li>The Legend of Zelda Series</li>
+                <li>Halo Series</li>
+                <li>Super Mario Series</li>
+                <li>FIFA Series</li>
+                <li>Animal Crossing Series</li>
+            </ul>
+        </section>
 
-    <h2>Games in each series:</h2>
-    <ul>
-        <li>Zelda Series: <a href="index.html">Breath of the Wild, Tears of the Kingdom, Ocarina of Time</a></li>
-        <li>Halo Series: <a href="index.html">Halo Infinite, Halo 5, Halo 3</a></li>
-        <li>Mario Series: <a href="index.html">Super Mario Odyssey, Super Mario Galaxy, Super Mario Bros.</a></li>
-        <li>FIFA Series: <a href="index.html">FIFA 24, FIFA 23, FIFA 22</a></li>
-        <li>Animal Crossing Series: <a href="index.html">New Horizons, New Leaf, Wild World</a></li>
-    </ul>
+        <section class="content-section">
+            <h2>Games in each series:</h2>
+            <div class="card-grid two-col">
+                <div class="card series-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#series"/>
+                        </svg>
+                        <h3 class="card-title">Zelda Series</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Breath of the Wild</a>, <a href="index.html">Tears of the Kingdom</a>, <a href="index.html">Ocarina of Time</a></p>
+                    </div>
+                </div>
 
-    <h2>Relationships:</h2>
-    <ul>
-        <li><a href="index.html">Games</a> are <strong>part of</strong> Series</li>
-        <li>Series <strong>is a collection of</strong> <a href="index.html">Games</a> (is-a-kind-of relationship)</li>
-    </ul>
+                <div class="card series-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#series"/>
+                        </svg>
+                        <h3 class="card-title">Halo Series</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Halo Infinite</a>, <a href="index.html">Halo 5</a>, <a href="index.html">Halo 3</a></p>
+                    </div>
+                </div>
+
+                <div class="card series-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#series"/>
+                        </svg>
+                        <h3 class="card-title">Mario Series</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Super Mario Odyssey</a>, <a href="index.html">Super Mario Galaxy</a>, <a href="index.html">Super Mario Bros.</a></p>
+                    </div>
+                </div>
+
+                <div class="card series-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#series"/>
+                        </svg>
+                        <h3 class="card-title">FIFA Series</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">FIFA 24</a>, <a href="index.html">FIFA 23</a>, <a href="index.html">FIFA 22</a></p>
+                    </div>
+                </div>
+
+                <div class="card series-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#series"/>
+                        </svg>
+                        <h3 class="card-title">Animal Crossing Series</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">New Horizons</a>, <a href="index.html">New Leaf</a>, <a href="index.html">Wild World</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relationships">
+            <h2>Relationships:</h2>
+            <ul>
+                <li><a href="index.html">Games</a> are <strong>part of</strong> Series</li>
+                <li>Series <strong>is a collection of</strong> <a href="index.html">Games</a> (is-a-kind-of relationship)</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

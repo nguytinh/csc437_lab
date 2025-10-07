@@ -3,6 +3,7 @@
   --color-background-page: #1a1a2e;
   --color-background-header: #16213e;
   --color-background-content: #0f1419;
+  --color-card-background: #242438;
   
   --color-text: #e0e0e0;
   --color-text-header: #bae7ed;
@@ -16,11 +17,22 @@
   
   --color-border: #2d3748;
   
-  /* spacing */
+  /* spacing - existing */
   --space-xs: 5px;
   --space-sm: 10px;
   --space-md: 20px;
   --space-lg: 30px;
+  --space-xl: 40px;
+  
+  /* layout spacing tokens */
+  --gap-xs: 0.5rem;
+  --gap-sm: 1rem;
+  --gap-md: 1.5rem;
+  --gap-lg: 2rem;
+  --gap-xl: 3rem;
+  
+  --padding-card: var(--space-md);
+  --padding-section: var(--space-lg);
   
   /* fonts */
   --font-family: "Outfit", sans-serif;
@@ -28,4 +40,15 @@
   --font-size-base: 16px;
   --font-size-heading: 24px;
   --font-size-subheading: 20px;
+  
+  /* grid system */
+  --grid-columns: 12;
+  --grid-gap: var(--gap-md);
+  --content-max-width: 1400px;
+  
+  /* breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
 }

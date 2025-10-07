@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>Games - Gaming Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,59 +12,135 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="index.html">
+    <header>
+        <a href="index.html" class="header-brand">
             <svg class="icon">
                 <use href="/icons/gaming.svg#game"/>
             </svg>
-            Games
+            Gaming Hub
         </a>
-        <a href="consoles.html">
-            <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
-            Consoles
-        </a>
-        <a href="genres.html">
-            <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
-            Genres
-        </a>
-        <a href="publishers.html">
-            <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
-            Publishers
-        </a>
-        <a href="series.html">
-            <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
-            Series
-        </a>
-        <a href="players.html">
-            <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
-            Players
-        </a>
-    </nav>
-    
-    <div class="next-to">
-        <svg class="icon">
-          <use href="/icons/gaming.svg#game"></use>
-        </svg>
-        <h1>Games</h1>
-      </div>
-    <p>Individual software titles designed for entertainment, featuring interactive gameplay, graphics, and stories.</p>
+        
+        <nav>
+            <a href="index.html">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#game"/>
+                </svg>
+                <span>Games</span>
+            </a>
+            <a href="consoles.html">
+                <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
+                <span>Consoles</span>
+            </a>
+            <a href="genres.html">
+                <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
+                <span>Genres</span>
+            </a>
+            <a href="publishers.html">
+                <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
+                <span>Publishers</span>
+            </a>
+            <a href="series.html">
+                <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
+                <span>Series</span>
+            </a>
+            <a href="players.html">
+                <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
+                <span>Players</span>
+            </a>
+        </nav>
+        
+        <div class="user-info">
+            <span class="user-name">Player One</span>
+            <div class="user-avatar">P1</div>
+        </div>
+    </header>
 
-    <h2>Our Game Collection:</h2>
-    <ul>
-        <li>The Legend of Zelda: Breath of the Wild</li>
-        <li>Halo Infinite</li>
-        <li>FIFA 24</li>
-        <li>Super Mario Odyssey</li>
-        <li>Animal Crossing: New Horizons</li>
-    </ul>
+    <main>
+        <div class="page-header">
+            <div class="next-to">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#game"></use>
+                </svg>
+                <h1>Games</h1>
+            </div>
+            <p>Individual software titles designed for entertainment, featuring interactive gameplay, graphics, and stories.</p>
+        </div>
 
-    <h2>Relationships:</h2>
-    <ul>
-        <li>Games <strong>run on</strong> <a href="consoles.html">Consoles</a></li>
-        <li>Games <strong>belong to</strong> <a href="genres.html">Genres</a></li>
-        <li>Games <strong>published by</strong> <a href="publishers.html">Publishers</a></li>
-        <li>Games are <strong>part of</strong> <a href="series.html">Series</a></li>
-        <li><a href="players.html">Players</a> <strong>play</strong> Games</li>
-    </ul>
+        <section class="content-section">
+            <h2>Our Game Collection:</h2>
+            <div class="card-grid three-col">
+                <div class="card game-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#game"/>
+                        </svg>
+                        <h3 class="card-title">Zelda: BOTW</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Action-Adventure epic on Nintendo Switch</p>
+                    </div>
+                </div>
+
+                <div class="card game-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#game"/>
+                        </svg>
+                        <h3 class="card-title">Halo Infinite</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>First-Person Shooter on Xbox Series X</p>
+                    </div>
+                </div>
+
+                <div class="card game-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#game"/>
+                        </svg>
+                        <h3 class="card-title">FIFA 24</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Sports simulation on PlayStation 5</p>
+                    </div>
+                </div>
+
+                <div class="card game-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#game"/>
+                        </svg>
+                        <h3 class="card-title">Super Mario Odyssey</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Platformer adventure on Nintendo Switch</p>
+                    </div>
+                </div>
+
+                <div class="card game-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#game"/>
+                        </svg>
+                        <h3 class="card-title">Animal Crossing</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Life simulation on Nintendo Switch</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relationships">
+            <h2>Relationships:</h2>
+            <ul>
+                <li>Games <strong>run on</strong> <a href="consoles.html">Consoles</a></li>
+                <li>Games <strong>belong to</strong> <a href="genres.html">Genres</a></li>
+                <li>Games <strong>published by</strong> <a href="publishers.html">Publishers</a></li>
+                <li>Games are <strong>part of</strong> <a href="series.html">Series</a></li>
+                <li><a href="players.html">Players</a> <strong>play</strong> Games</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

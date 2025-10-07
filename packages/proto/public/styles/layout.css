@@ -1,0 +1,225 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-lg);
+    background-color: var(--color-background-header);
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 2px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    text-decoration: none;
+    color: var(--color-text-header);
+    font-family: var(--font-family-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .header-brand .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  header nav {
+    display: flex;
+    gap: var(--gap-md);
+    flex: 1;
+    justify-content: center;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav a {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+  }
+  
+  header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+  }
+  
+  header nav .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    white-space: nowrap;
+  }
+  
+  .user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-background-page);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .user-name {
+    color: var(--color-text);
+    font-size: 0.9rem;
+  }
+  
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap);
+    padding: var(--space-lg);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .page-header {
+    grid-column: 1 / -1;
+    margin-bottom: var(--space-md);
+  }
+  
+  .page-header .next-to {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .page-header .next-to .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .page-header p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+  
+  .content-section {
+    grid-column: span 12;
+  }
+  
+  /* Two column layout */
+  .content-section.col-half {
+    grid-column: span 6;
+  }
+  
+  /* Three column layout */
+  .content-section.col-third {
+    grid-column: span 4;
+  }
+  
+  /* Four column layout */
+  .content-section.col-quarter {
+    grid-column: span 3;
+  }
+  
+  /* Tablet - 8 columns */
+  @media (max-width: 1024px) {
+    :root {
+      --grid-columns: 8;
+    }
+    
+    header {
+      flex-wrap: wrap;
+    }
+    
+    header nav {
+      order: 3;
+      flex-basis: 100%;
+      justify-content: flex-start;
+    }
+    
+    .content-section.col-half {
+      grid-column: span 4;
+    }
+    
+    .content-section.col-third {
+      grid-column: span 4;
+    }
+    
+    .content-section.col-quarter {
+      grid-column: span 4;
+    }
+  }
+  
+  /* Mobile - 4 columns */
+  @media (max-width: 768px) {
+    :root {
+      --grid-columns: 4;
+      --grid-gap: var(--gap-sm);
+    }
+    
+    main {
+      padding: var(--space-md);
+    }
+    
+    header {
+      padding: var(--space-sm) var(--space-md);
+    }
+    
+    .header-brand {
+      font-size: 1.25rem;
+    }
+    
+    .user-name {
+      display: none;
+    }
+    
+    header nav a span {
+      display: none;
+    }
+    
+    .content-section.col-half,
+    .content-section.col-third,
+    .content-section.col-quarter {
+      grid-column: span 4;
+    }
+  }
+  
+  /* Wide screens - 16 columns */
+  @media (min-width: 1440px) {
+    :root {
+      --grid-columns: 16;
+    }
+    
+    .content-section.col-half {
+      grid-column: span 8;
+    }
+    
+    .content-section.col-third {
+      grid-column: span 5;
+    }
+    
+    .content-section.col-quarter {
+      grid-column: span 4;
+    }
+  }

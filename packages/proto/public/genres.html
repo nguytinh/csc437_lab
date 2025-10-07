@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genres</title>
+    <title>Genres - Gaming Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,67 +12,145 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="index.html">
+    <header>
+        <a href="index.html" class="header-brand">
             <svg class="icon">
                 <use href="/icons/gaming.svg#game"/>
             </svg>
-            Games
+            Gaming Hub
         </a>
-        <a href="consoles.html">
-            <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
-            Consoles
-        </a>
-        <a href="genres.html">
-            <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
-            Genres
-        </a>
-        <a href="publishers.html">
-            <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
-            Publishers
-        </a>
-        <a href="series.html">
-            <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
-            Series
-        </a>
-        <a href="players.html">
-            <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
-            Players
-        </a>
-    </nav>
+        
+        <nav>
+            <a href="index.html">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#game"/>
+                </svg>
+                <span>Games</span>
+            </a>
+            <a href="consoles.html">
+                <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
+                <span>Consoles</span>
+            </a>
+            <a href="genres.html">
+                <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
+                <span>Genres</span>
+            </a>
+            <a href="publishers.html">
+                <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
+                <span>Publishers</span>
+            </a>
+            <a href="series.html">
+                <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
+                <span>Series</span>
+            </a>
+            <a href="players.html">
+                <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
+                <span>Players</span>
+            </a>
+        </nav>
+        
+        <div class="user-info">
+            <span class="user-name">Player One</span>
+            <div class="user-avatar">P1</div>
+        </div>
+    </header>
 
-    <div class="next-to">
-        <svg class="icon">
-          <use href="/icons/gaming.svg#genre"></use>
-        </svg>
-        <h1>Genres</h1>
-      </div>
-    <p>Categories that classify games by gameplay style and mechanics.</p>
+    <main>
+        <div class="page-header">
+            <div class="next-to">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#genre"></use>
+                </svg>
+                <h1>Genres</h1>
+            </div>
+            <p>Categories that classify games by gameplay style and mechanics.</p>
+        </div>
 
-    <h2>Available Genres:</h2>
-    <ul>
-        <li>Action-Adventure</li>
-        <li>First-Person Shooter (FPS)</li>
-        <li>Sports</li>
-        <li>Platformer</li>
-        <li>Role-Playing Game (RPG)</li>
-        <li>Strategy</li>
-        <li>Puzzle</li>
-        <li>Simulation</li>
-    </ul>
+        <section class="content-section col-half">
+            <h2>Available Genres:</h2>
+            <ul class="item-list">
+                <li>Action-Adventure</li>
+                <li>First-Person Shooter (FPS)</li>
+                <li>Sports</li>
+                <li>Platformer</li>
+                <li>Role-Playing Game (RPG)</li>
+                <li>Strategy</li>
+                <li>Puzzle</li>
+                <li>Simulation</li>
+            </ul>
+        </section>
 
-    <h2>Games in each genre:</h2>
-    <ul>
-        <li>Action-Adventure: <a href="index.html">Zelda: Breath of the Wild</a></li>
-        <li>First-Person Shooter: <a href="index.html">Halo Infinite</a></li>
-        <li>Sports: <a href="index.html">FIFA 24</a></li>
-        <li>Platformer: <a href="index.html">Super Mario Odyssey</a></li>
-        <li>Simulation: <a href="index.html">Animal Crossing: New Horizons</a></li>
-    </ul>
+        <section class="content-section col-half">
+            <h2>Games in each genre:</h2>
+            <div class="card-grid">
+                <div class="card genre-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#genre"/>
+                        </svg>
+                        <h3 class="card-title">Action-Adventure</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Zelda: Breath of the Wild</a></p>
+                    </div>
+                </div>
 
-    <h2>Relationships:</h2>
-    <ul>
-        <li><a href="index.html">Games</a> <strong>belong to</strong> Genres</li>
-    </ul>
+                <div class="card genre-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#genre"/>
+                        </svg>
+                        <h3 class="card-title">First-Person Shooter</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Halo Infinite</a></p>
+                    </div>
+                </div>
+
+                <div class="card genre-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#genre"/>
+                        </svg>
+                        <h3 class="card-title">Sports</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">FIFA 24</a></p>
+                    </div>
+                </div>
+
+                <div class="card genre-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#genre"/>
+                        </svg>
+                        <h3 class="card-title">Platformer</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Super Mario Odyssey</a></p>
+                    </div>
+                </div>
+
+                <div class="card genre-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#genre"/>
+                        </svg>
+                        <h3 class="card-title">Simulation</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Animal Crossing: New Horizons</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relationships">
+            <h2>Relationships:</h2>
+            <ul>
+                <li><a href="index.html">Games</a> <strong>belong to</strong> Genres</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

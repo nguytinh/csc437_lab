@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consoles</title>
+    <title>Consoles - Gaming Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,63 +12,119 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="index.html">
+    <header>
+        <a href="index.html" class="header-brand">
             <svg class="icon">
                 <use href="/icons/gaming.svg#game"/>
             </svg>
-            Games
+            Gaming Hub
         </a>
-        <a href="consoles.html">
-            <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
-            Consoles
-        </a>
-        <a href="genres.html">
-            <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
-            Genres
-        </a>
-        <a href="publishers.html">
-            <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
-            Publishers
-        </a>
-        <a href="series.html">
-            <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
-            Series
-        </a>
-        <a href="players.html">
-            <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
-            Players
-        </a>
-    </nav>
+        
+        <nav>
+            <a href="index.html">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#game"/>
+                </svg>
+                <span>Games</span>
+            </a>
+            <a href="consoles.html">
+                <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
+                <span>Consoles</span>
+            </a>
+            <a href="genres.html">
+                <svg class="icon"><use href="/icons/gaming.svg#genre" /></svg>
+                <span>Genres</span>
+            </a>
+            <a href="publishers.html">
+                <svg class="icon"><use href="/icons/gaming.svg#publisher" /></svg>
+                <span>Publishers</span>
+            </a>
+            <a href="series.html">
+                <svg class="icon"><use href="/icons/gaming.svg#series" /></svg>
+                <span>Series</span>
+            </a>
+            <a href="players.html">
+                <svg class="icon"><use href="/icons/gaming.svg#player" /></svg>
+                <span>Players</span>
+            </a>
+        </nav>
+        
+        <div class="user-info">
+            <span class="user-name">Player One</span>
+            <div class="user-avatar">P1</div>
+        </div>
+    </header>
 
-    <div class="next-to">
-        <svg class="icon">
-          <use href="/icons/gaming.svg#console"></use>
-        </svg>
-        <h1>Consoles</h1>
-      </div>
-    <p>Dedicated gaming hardware platforms that run games.</p>
+    <main>
+        <div class="page-header">
+            <div class="next-to">
+                <svg class="icon">
+                    <use href="/icons/gaming.svg#console"></use>
+                </svg>
+                <h1>Consoles</h1>
+            </div>
+            <p>Dedicated gaming hardware platforms that run games.</p>
+        </div>
 
-    <h2>Available Consoles:</h2>
-    <ul>
-        <li>Nintendo Switch</li>
-        <li>PlayStation 5</li>
-        <li>Xbox Series X</li>
-        <li>Steam Deck</li>
-        <li>Nintendo Switch Lite</li>
-    </ul>
+        <section class="content-section">
+            <h2>Available Consoles:</h2>
+            <ul class="item-list">
+                <li>Nintendo Switch</li>
+                <li>PlayStation 5</li>
+                <li>Xbox Series X</li>
+                <li>Steam Deck</li>
+                <li>Nintendo Switch Lite</li>
+            </ul>
+        </section>
 
-    <h2>Games that run on these consoles:</h2>
-    <ul>
-        <li>Nintendo Switch: <a href="index.html">Zelda: Breath of the Wild, Super Mario Odyssey, Animal Crossing</a></li>
-        <li>PlayStation 5: <a href="index.html">FIFA 24, Spider-Man 2, God of War</a></li>
-        <li>Xbox Series X: <a href="index.html">Halo Infinite, Forza Horizon 5</a></li>
-    </ul>
+        <section class="content-section">
+            <h2>Games that run on these consoles:</h2>
+            <div class="card-grid two-col">
+                <div class="card console-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#console"/>
+                        </svg>
+                        <h3 class="card-title">Nintendo Switch</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Zelda: Breath of the Wild</a>, <a href="index.html">Super Mario Odyssey</a>, <a href="index.html">Animal Crossing</a></p>
+                    </div>
+                </div>
 
-    <h2>Relationships:</h2>
-    <ul>
-        <li><a href="index.html">Games</a> <strong>run on</strong> Consoles</li>
-        <li><a href="players.html">Players</a> <strong>own</strong> Consoles</li>
-    </ul>
+                <div class="card console-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#console"/>
+                        </svg>
+                        <h3 class="card-title">PlayStation 5</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">FIFA 24</a>, <a href="index.html">Spider-Man 2</a>, <a href="index.html">God of War</a></p>
+                    </div>
+                </div>
+
+                <div class="card console-card">
+                    <div class="card-header">
+                        <svg class="icon">
+                            <use href="/icons/gaming.svg#console"/>
+                        </svg>
+                        <h3 class="card-title">Xbox Series X</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><a href="index.html">Halo Infinite</a>, <a href="index.html">Forza Horizon 5</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relationships">
+            <h2>Relationships:</h2>
+            <ul>
+                <li><a href="index.html">Games</a> <strong>run on</strong> Consoles</li>
+                <li><a href="players.html">Players</a> <strong>own</strong> Consoles</li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
