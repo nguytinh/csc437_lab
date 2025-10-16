@@ -52,3 +52,23 @@
   --breakpoint-desktop: 1024px;
   --breakpoint-wide: 1440px;
 }
+
+/* Light mode overrides */
+body.light-mode {
+  --color-background-page: #f5f5f5;
+  --color-background-header: #ffffff;
+  --color-background-content: #ffffff;
+  --color-card-background: #ffffff;
+  
+  --color-text: #1a1a2e;
+  --color-text-header: #0f1419;
+  --color-text-muted: #4a5568;
+  
+  --color-accent: #1e40af;
+  --color-accent-hover: #1e3a8a;
+  
+  --color-link: #1e40af;
+  --color-link-hover: #1e3a8a;
+  
+  --color-border: #e2e8f0;
+}
