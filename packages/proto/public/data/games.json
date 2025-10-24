@@ -1,0 +1,29 @@
+{
+  "games": [
+    {
+      "title": "Zelda: BOTW",
+      "description": "Action-Adventure epic on Nintendo Switch",
+      "href": "zelda-botw.html"
+    },
+    {
+      "title": "Halo Infinite",
+      "description": "First-Person Shooter on Xbox Series X",
+      "href": "halo-infinite.html"
+    },
+    {
+      "title": "FIFA 24",
+      "description": "Sports simulation on PlayStation 5",
+      "href": "fifa-24.html"
+    },
+    {
+      "title": "Super Mario Odyssey",
+      "description": "Platformer adventure on Nintendo Switch",
+      "href": "mario-odyssey.html"
+    },
+    {
+      "title": "Animal Crossing",
+      "description": "Life simulation on Nintendo Switch",
+      "href": "animal-crossing.html"
+    }
+  ]
+}

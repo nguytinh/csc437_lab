@@ -30,7 +30,7 @@ export class GameCardElement extends LitElement {
     reset.styles,
     css`
       :host {
-        display: block;
+        display: contents;
       }
       
       .card {

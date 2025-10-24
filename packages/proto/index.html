@@ -14,9 +14,11 @@
     <script type="module">
         import { define } from "@calpoly/mustang";
         import { GameCardElement } from "/src/game-card.js";
+        import { GameCollectionElement } from "/src/game-collection.js";
 
         define({
-            "game-card": GameCardElement
+            "game-card": GameCardElement,
+            "game-collection": GameCollectionElement
         });
     </script>
 </head>
@@ -95,35 +97,7 @@
             <p>Individual software titles designed for entertainment, featuring interactive gameplay, graphics, and stories.</p>
         </div>
 
-        <section class="content-section">
-            <h2>Our Game Collection:</h2>
-            <div class="card-grid three-col">
-                <game-card href="zelda-botw.html">
-                    <span slot="title">Zelda: BOTW</span>
-                    <span slot="description">Action-Adventure epic on Nintendo Switch</span>
-                </game-card>
-
-                <game-card href="halo-infinite.html">
-                    <span slot="title">Halo Infinite</span>
-                    <span slot="description">First-Person Shooter on Xbox Series X</span>
-                </game-card>
-
-                <game-card href="fifa-24.html">
-                    <span slot="title">FIFA 24</span>
-                    <span slot="description">Sports simulation on PlayStation 5</span>
-                </game-card>
-
-                <game-card href="mario-odyssey.html">
-                    <span slot="title">Super Mario Odyssey</span>
-                    <span slot="description">Platformer adventure on Nintendo Switch</span>
-                </game-card>
-
-                <game-card href="animal-crossing.html">
-                    <span slot="title">Animal Crossing</span>
-                    <span slot="description">Life simulation on Nintendo Switch</span>
-                </game-card>
-            </div>
-        </section>
+        <game-collection src="/data/games.json"></game-collection>
 
         <section class="relationships">
             <h2>Relationships:</h2>
