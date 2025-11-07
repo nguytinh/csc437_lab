@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Gaming Collection</title>
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
+  <script type="module">
+    import { define, Auth } from "@calpoly/mustang";
+    import { LoginFormElement } from "/src/auth/login-form.ts";
+
+    define({
+      "mu-auth": Auth.Provider,
+      "login-form": LoginFormElement
+    });
+  </script>
+</head>
+<body class="page">
+  <header>
+    <a href="index.html" class="header-brand">
+      <svg class="icon">
+        <use href="/icons/gaming.svg#game"/>
+      </svg>
+      Gaming Hub
+    </a>
+  </header>
+  
+  <main class="auth-page">
+    <mu-auth provides="gaming:auth">
+      <div class="auth-container">
+        <div class="auth-header">
+          <svg class="icon-large">
+            <use href="/icons/gaming.svg#game"/>
+          </svg>
+          <h1>Welcome Back</h1>
+          <p class="auth-subtitle">Sign in to your Gaming Hub account</p>
+        </div>
+        <div class="card auth-card">
+          <login-form api="/auth/login">
+            <label>
+              <span>Username</span>
+              <input name="username" autocomplete="username" placeholder="Enter your username" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" />
+            </label>
+          </login-form>
+        </div>
+        <p class="auth-footer">Don't have an account? <a href="newuser.html">Sign up here</a></p>
+      </div>
+    </mu-auth>
+  </main>
+</body>
+</html>

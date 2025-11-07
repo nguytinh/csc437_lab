@@ -14,8 +14,12 @@ function relayEvent(event, customType, detail) {
 
 // Event handler for the label that relays the change event as a custom event
 function handleToggleChange(event) {
-  if (event.target.type === 'checkbox') {
-    relayEvent(event, 'darkmode:toggle', { checked: event.target.checked });
+  // Handle both direct clicks and events from web components
+  const target = event.target;
+  const checkbox = target.type === 'checkbox' ? target : target.closest('.dark-mode-switch')?.querySelector('input[type="checkbox"]');
+  
+  if (checkbox) {
+    relayEvent(event, 'darkmode:toggle', { checked: checkbox.checked });
   }
 }
 
@@ -59,18 +63,48 @@ function initDarkMode() {
   // Add event listener to body for custom darkmode:toggle event
   document.body.addEventListener('darkmode:toggle', handleDarkModeToggle);
   
-  // Find the dark mode switch label and add change handler
-  const darkModeSwitch = document.querySelector('.dark-mode-switch');
-  if (darkModeSwitch) {
-    darkModeSwitch.onchange = handleToggleChange;
+  // Use event delegation on document to handle dynamically rendered components
+  // This works even if the dark mode switch is inside a web component
+  document.addEventListener('change', (event) => {
+    const target = event.target;
+    if (target.type === 'checkbox' && target.closest('.dark-mode-switch')) {
+      handleToggleChange(event);
+    }
+  });
+  
+  // Also attach directly to existing switches (for pages without web components)
+  function attachDarkModeHandler() {
+    const darkModeSwitch = document.querySelector('.dark-mode-switch');
+    if (darkModeSwitch && !darkModeSwitch.onchange) {
+      darkModeSwitch.onchange = handleToggleChange;
+    }
   }
+  
+  // Try to attach immediately, then retry for web components
+  attachDarkModeHandler();
+  
+  // Retry mechanism for web components that render asynchronously
+  let attempts = 0;
+  const maxAttempts = 10;
+  const tryAttach = () => {
+    attempts++;
+    attachDarkModeHandler();
+    if (attempts < maxAttempts) {
+      setTimeout(tryAttach, 100);
+    }
+  };
+  setTimeout(tryAttach, 100);
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initDarkMode);
+  document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to allow web components to initialize
+    setTimeout(initDarkMode, 50);
+  });
 } else {
-  initDarkMode();
+  // Small delay to allow web components to initialize
+  setTimeout(initDarkMode, 50);
 }
 
 export { initDarkMode };

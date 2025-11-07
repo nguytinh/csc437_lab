@@ -7,8 +7,30 @@ export class GameCardElement extends LitElement {
   href?: string;
 
   override render() {
+    // Only render as link if href is provided
+    if (this.href) {
+      return html`
+        <a href="${this.href}" class="card game-card">
+          <div class="card-header">
+            <svg class="icon">
+              <use href="/icons/gaming.svg#game"/>
+            </svg>
+            <h3 class="card-title">
+              <slot name="title">Default Title</slot>
+            </h3>
+          </div>
+          <div class="card-content">
+            <p>
+              <slot name="description">Default description</slot>
+            </p>
+          </div>
+        </a>
+      `;
+    }
+    
+    // Fallback: render as div if no href
     return html`
-      <a href="${this.href}" class="card game-card">
+      <div class="card game-card">
         <div class="card-header">
           <svg class="icon">
             <use href="/icons/gaming.svg#game"/>
@@ -22,7 +44,7 @@ export class GameCardElement extends LitElement {
             <slot name="description">Default description</slot>
           </p>
         </div>
-      </a>
+      </div>
     `;
   }
 
@@ -42,6 +64,9 @@ export class GameCardElement extends LitElement {
         text-decoration: none;
         color: inherit;
         display: block;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 100%;
       }
       
       .card:hover {
