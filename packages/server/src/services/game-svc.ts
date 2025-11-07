@@ -24,5 +24,27 @@ function get(title: String): Promise<Game> {
     });
 }
 
-export default { index, get };
+function create(json: Game): Promise<Game> {
+  const g = new GameModel(json);
+  return g.save();
+}
+
+function update(title: String, game: Game): Promise<Game> {
+  return GameModel.findOneAndUpdate({ title }, game, {
+    new: true
+  }).then((updated) => {
+    if (!updated) throw `${title} not updated`;
+    else return updated as Game;
+  });
+}
+
+function remove(title: String): Promise<void> {
+  return GameModel.findOneAndDelete({ title }).then(
+    (deleted) => {
+      if (!deleted) throw `${title} not deleted`;
+    }
+  );
+}
+
+export default { index, get, create, update, remove };
 
