@@ -82,6 +82,8 @@ export class GamesViewElement extends View<Model, Msg> {
   }
 
   render() {
+    // Map game titles to URL-friendly slugs for detail pages
+    // Note: Detail pages use hardcoded data, not API data
     const gameIdMap: { [key: string]: string } = {
       "Zelda: BOTW": "zelda-botw",
       "Halo Infinite": "halo-infinite",
@@ -111,20 +113,22 @@ export class GamesViewElement extends View<Model, Msg> {
                 ${this.games.map((game, index) => {
                   const gameId = gameIdMap[game.title] || this.generateSlug(game.title);
                   const href = `/app/games/${gameId}`;
-                  const imageUrl = this.getGameImage(game.title);
+                  const editHref = `/app/games-list/${encodeURIComponent(game.title)}/edit`;
+                  const imageUrl = game.imageUrl || this.getGameImage(game.title);
                   return html`
-                    <a 
-                      href="${href}" 
-                      class="slide ${index === this.currentSlide ? 'active' : ''}"
+                    <div class="slide ${index === this.currentSlide ? 'active' : ''}"
                       style="background-image: url('${imageUrl}')"
                     >
                       <div class="slide-overlay"></div>
                       <div class="slide-content">
                         <h3 class="slide-title">${game.title}</h3>
                         <p class="slide-description">${game.description}</p>
-                        <span class="slide-cta">View Details →</span>
+                        <div class="slide-actions">
+                          <a href="${href}" class="slide-cta">View Details →</a>
+                          <a href="${editHref}" class="slide-edit" @click=${(e: Event) => e.stopPropagation()}>✏️ Edit</a>
+                        </div>
                       </div>
-                    </a>
+                    </div>
                   `;
                 })}
               </div>
@@ -352,19 +356,38 @@ export class GamesViewElement extends View<Model, Msg> {
         font-weight: 500;
       }
       
-      .slide-cta {
+      .slide-actions {
+        display: flex;
+        gap: var(--gap-md);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .slide-cta,
+      .slide-edit {
         display: inline-block;
         padding: var(--space-md) var(--space-xl);
-        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
         color: white;
         border-radius: 8px;
         font-weight: 700;
         font-size: 1.1rem;
+        text-decoration: none;
         transition: all 0.3s ease;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .slide-cta {
+        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
         box-shadow: 
           0 4px 12px rgba(59, 130, 246, 0.5),
           0 8px 24px rgba(0, 0, 0, 0.4);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      
+      .slide-edit {
+        background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        box-shadow: 
+          0 4px 12px rgba(16, 185, 129, 0.5),
+          0 8px 24px rgba(0, 0, 0, 0.4);
       }
       
       .slide:hover .slide-cta {
@@ -372,6 +395,14 @@ export class GamesViewElement extends View<Model, Msg> {
         transform: translateY(-4px) scale(1.05);
         box-shadow: 
           0 8px 20px rgba(59, 130, 246, 0.6),
+          0 12px 32px rgba(0, 0, 0, 0.5);
+      }
+      
+      .slide:hover .slide-edit {
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 
+          0 8px 20px rgba(16, 185, 129, 0.6),
           0 12px 32px rgba(0, 0, 0, 0.5);
       }
       

@@ -13,8 +13,10 @@ import { HeaderElement } from "./components/gaming-header";
 import { FooterElement } from "./components/gaming-footer";
 import { HomeViewElement } from "./views/home-view";
 import { GamesViewElement } from "./views/games-view";
+import { GamesListViewElement } from "./views/games-list-view";
 import { GameViewElement } from "./views/game-view";
 import { GameDetailViewElement } from "./views/game-detail-view";
+import { GameEditViewElement } from "./views/game-edit-view";
 import { ConsolesViewElement } from "./views/consoles-view";
 import { GenresViewElement } from "./views/genres-view";
 import { PublishersViewElement } from "./views/publishers-view";
@@ -22,6 +24,18 @@ import { SeriesViewElement } from "./views/series-view";
 import { PlayersViewElement } from "./views/players-view";
 
 const routes = [
+  {
+    path: "/app/games-list/:id/edit",
+    view: (params: Switch.Params) => html`
+      <game-edit-view game-id=${params.id}></game-edit-view>
+    `
+  },
+  {
+    path: "/app/games-list",
+    view: () => html`
+      <games-list-view></games-list-view>
+    `
+  },
   {
     path: "/app/games/:id",
     view: (params: Switch.Params) => html`
@@ -88,8 +102,10 @@ define({
   "gaming-footer": FooterElement,
   "home-view": HomeViewElement,
   "games-view": GamesViewElement,
+  "games-list-view": GamesListViewElement,
   "game-view": GameViewElement,
   "game-detail-view": GameDetailViewElement,
+  "game-edit-view": GameEditViewElement,
   "consoles-view": ConsolesViewElement,
   "genres-view": GenresViewElement,
   "publishers-view": PublishersViewElement,

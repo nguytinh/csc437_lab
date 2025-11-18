@@ -72,6 +72,12 @@ export class HeaderElement extends LitElement {
             </svg>
             <span>Games</span>
           </a>
+          <a href="/app/games-list">
+            <svg class="icon">
+              <use href="/icons/gaming.svg#game"/>
+            </svg>
+            <span>Edit Games</span>
+          </a>
           <a href="/app/consoles">
             <svg class="icon"><use href="/icons/gaming.svg#console" /></svg>
             <span>Consoles</span>
@@ -190,22 +196,31 @@ export class HeaderElement extends LitElement {
       
       nav {
         display: flex;
-        gap: var(--gap-md);
+        gap: var(--gap-sm);
         flex: 1;
         justify-content: center;
         border: none;
         margin: 0;
         padding: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+      }
+      
+      nav::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
       }
       
       nav a {
         display: flex;
         align-items: center;
-        gap: var(--gap-xs);
-        padding: var(--space-xs) var(--space-sm);
+        gap: 4px;
+        padding: 6px 10px;
         border-radius: 4px;
         transition: background-color 0.2s;
         white-space: nowrap;
+        font-size: 0.9rem;
         color: var(--color-link);
         text-decoration: none;
       }
@@ -217,8 +232,8 @@ export class HeaderElement extends LitElement {
       }
       
       nav .icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
         fill: var(--color-text);
         stroke: var(--color-text);
       }

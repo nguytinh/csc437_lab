@@ -194,6 +194,10 @@ export class GameDetailViewElement extends LitElement {
             <h1>${this.gameData.fullTitle}</h1>
           </div>
           <p class="tagline">${this.gameData.description}</p>
+          <p class="info-note">
+            💡 These detail pages use static data. To edit API-connected games, 
+            visit <a href="/app/games-list">Edit Games</a>.
+          </p>
         </div>
 
         <section class="content-section">
@@ -309,6 +313,27 @@ export class GameDetailViewElement extends LitElement {
       .back-link:hover {
         background: rgba(59, 130, 246, 0.2);
         transform: translateX(-4px);
+      }
+      
+      .info-note {
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
+        margin-top: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: rgba(59, 130, 246, 0.05);
+        border-radius: 6px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+      
+      .info-note a {
+        color: var(--color-accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      
+      .info-note a:hover {
+        text-decoration: underline;
       }
       
       .page-header {

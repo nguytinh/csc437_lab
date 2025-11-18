@@ -28,30 +28,7 @@
       </svg>
       Gaming Hub
     </a>
-    <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
-      <svg class="icon" id="theme-icon">
-        <use href="/icons/gaming.svg#sun"/>
-      </svg>
-    </button>
   </header>
-  <script>
-    // Dark mode toggle - synced with main app
-    const toggle = document.getElementById('dark-mode-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const savedTheme = localStorage.getItem('dark-mode-preference') || 'dark';
-    
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-mode');
-      themeIcon.querySelector('use').setAttribute('href', '/icons/gaming.svg#moon');
-    }
-    
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      const isLight = document.body.classList.contains('light-mode');
-      localStorage.setItem('dark-mode-preference', isLight ? 'light' : 'dark');
-      themeIcon.querySelector('use').setAttribute('href', isLight ? '/icons/gaming.svg#moon' : '/icons/gaming.svg#sun');
-    });
-  </script>
   
   <main class="auth-page">
     <mu-auth provides="gaming:auth">

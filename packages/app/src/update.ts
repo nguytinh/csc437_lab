@@ -8,7 +8,8 @@ export default function update(
   model: Model,
   user: Auth.User
 ): Model | [Model, Promise<Msg>] {
-  switch (message[0]) {
+  const [command, payload, callbacks] = message;
+  switch (command) {
     case "games/request": {
       return [
         { ...model, games: [] },
@@ -17,11 +18,11 @@ export default function update(
       ];
     }
     case "games/load": {
-      const { games } = message[1];
+      const { games } = payload;
       return { ...model, games };
     }
     case "game/request": {
-      const { gameId } = message[1];
+      const { gameId } = payload;
       return [
         { ...model, game: undefined },
         requestGame(gameId, user)
@@ -29,11 +30,26 @@ export default function update(
       ];
     }
     case "game/load": {
-      const { game } = message[1];
+      const { game } = payload;
       return { ...model, game };
     }
+    case "game/save": {
+      const { onSuccess, onFailure } = callbacks || {};
+      return [
+        model,
+        saveGame(payload, user)
+          .then((game) => {
+            if (onSuccess) onSuccess();
+            return ["game/load", { game }] as Msg;
+          })
+          .catch((error: Error) => {
+            if (onFailure) onFailure(error);
+            throw error;
+          })
+      ];
+    }
     default: {
-      const unhandled: never = message[0];
+      const unhandled: never = command;
       throw new Error(`Unhandled message "${unhandled}"`);
     }
   }
@@ -72,6 +88,31 @@ function requestGame(gameId: string, user: Auth.User): Promise<Game> {
     .then((json: unknown) => {
       if (json) return json as Game;
       throw new Error("No JSON in response from server");
+    });
+}
+
+function saveGame(
+  msg: {
+    gameId: string;
+    game: Game;
+  },
+  user: Auth.User
+): Promise<Game> {
+  return fetch(`/api/games/${msg.gameId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      ...Auth.headers(user)
+    },
+    body: JSON.stringify(msg.game)
+  })
+    .then((response: Response) => {
+      if (response.status === 200) return response.json();
+      throw new Error(`Failed to save game for ${msg.gameId}`);
+    })
+    .then((json: unknown) => {
+      if (json) return json as Game;
+      throw new Error("No JSON in API response");
     });
 }
 
