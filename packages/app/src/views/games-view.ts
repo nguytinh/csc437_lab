@@ -1,38 +1,29 @@
-import { css, html, LitElement } from "lit";
+import { View } from "@calpoly/mustang";
+import { css, html } from "lit";
 import { state } from "lit/decorators.js";
-import { Observer } from "@calpoly/mustang";
-import { Auth } from "@calpoly/mustang";
+import { Game } from "server/models";
 import reset from "../styles/reset.css.js";
+import { Msg } from "../messages";
+import { Model } from "../model";
 
-interface Game {
-  title: string;
-  description: string;
-  href?: string;
-  _id?: string;
-}
-
-type GameData = {
-  games: Array<Game>;
-};
-
-export class GamesViewElement extends LitElement {
+export class GamesViewElement extends View<Model, Msg> {
   @state()
-  games: Array<Game> = [];
+  get games(): Array<Game> {
+    return this.model.games || [];
+  }
 
   @state()
   currentSlide: number = 0;
 
   private slideInterval?: number;
 
-  _authObserver = new Observer<Auth.Model>(this, "gaming:auth");
-  _user?: Auth.User;
+  constructor() {
+    super("gaming:model");
+  }
 
   connectedCallback() {
     super.connectedCallback();
-    this._authObserver.observe((auth: Auth.Model) => {
-      this._user = auth.user;
-      this.hydrate("/api/games");
-    });
+    this.dispatchMessage(["games/request", {}]);
     this.startSlideshow();
   }
 
@@ -70,39 +61,6 @@ export class GamesViewElement extends LitElement {
     // Restart the slideshow timer
     this.stopSlideshow();
     this.startSlideshow();
-  }
-
-  get authorization() {
-    if (this._user?.authenticated) {
-      return {
-        Authorization: `Bearer ${(this._user as Auth.AuthenticatedUser).token}`
-      };
-    }
-    return undefined;
-  }
-
-  hydrate(src: string) {
-    fetch(src, { headers: this.authorization })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((json: object) => {
-        if (json) {
-          // API returns array directly, or object with games property
-          if (Array.isArray(json)) {
-            this.games = json as Game[];
-          } else {
-            const gameData = json as GameData;
-            this.games = gameData.games || [];
-          }
-        }
-      })
-      .catch(error => {
-        console.error('Failed to load game data:', error);
-      });
   }
 
   getGameImage(title: string): string {

@@ -2,9 +2,13 @@ import {
   Auth,
   define,
   History,
-  Switch
+  Switch,
+  Store
 } from "@calpoly/mustang";
 import { html } from "lit";
+import { Msg } from "./messages";
+import { Model, init } from "./model";
+import update from "./update";
 import { HeaderElement } from "./components/gaming-header";
 import { FooterElement } from "./components/gaming-footer";
 import { HomeViewElement } from "./views/home-view";
@@ -75,6 +79,11 @@ const routes = [
 define({
   "mu-auth": Auth.Provider,
   "mu-history": History.Provider,
+  "mu-store": class AppStore extends Store.Provider<Model, Msg> {
+    constructor() {
+      super(update, init, "gaming:auth");
+    }
+  },
   "gaming-header": HeaderElement,
   "gaming-footer": FooterElement,
   "home-view": HomeViewElement,

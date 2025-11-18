@@ -15,10 +15,12 @@
 <body>
     <mu-history provides="gaming:history">
       <mu-auth provides="gaming:auth" redirect="/login.html">
-        <article class="page">
-          <gaming-header></gaming-header>
-          <mu-switch></mu-switch>
-        </article>
+        <mu-store provides="gaming:model">
+          <article class="page">
+            <gaming-header></gaming-header>
+            <mu-switch></mu-switch>
+          </article>
+        </mu-store>
       </mu-auth>
     </mu-history>
 </body>
