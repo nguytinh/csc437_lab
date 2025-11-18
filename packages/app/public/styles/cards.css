@@ -1,0 +1,160 @@
+.card {
+  background: var(--color-card-background);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: var(--padding-card);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px var(--color-shadow), 0 2px 4px -1px var(--color-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px var(--color-shadow), 0 10px 10px -5px var(--color-shadow);
+  background: var(--color-card-background-hover);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.card-header .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+}
+
+.card-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-subheading);
+  margin: 0;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.card-content {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.card-content p {
+  margin: var(--space-sm) 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap-md);
+  grid-column: 1 / -1;
+}
+
+.card-grid.two-col {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.card-grid.three-col {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item-list li {
+  background: var(--color-card-background);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px var(--color-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.item-list li::after {
+  content: '→';
+  position: absolute;
+  right: 1rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.item-list li:hover {
+  background: var(--color-card-background-hover);
+  transform: translateX(8px);
+  border-left-width: 6px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.item-list li:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.game-card,
+.console-card,
+.genre-card,
+.publisher-card,
+.series-card,
+.player-card {
+  background-color: var(--color-card-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--padding-card);
+}
+
+.game-card .card-icon,
+.console-card .card-icon,
+.genre-card .card-icon,
+.publisher-card .card-icon,
+.series-card .card-icon,
+.player-card .card-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-sm);
+  fill: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .card-grid,
+  .card-grid.two-col,
+  .card-grid.three-col {
+    grid-template-columns: 1fr;
+  }
+}
+

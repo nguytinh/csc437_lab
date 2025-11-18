@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Gaming Hub</title>
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/tokens.css" />
+  <link rel="stylesheet" href="/styles/page.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ramabhadra&display=swap" rel="stylesheet">
+  <script type="module">
+    import { define, Auth } from "@calpoly/mustang";
+    import { RegisterFormElement } from "/src/components/register-form.ts";
+
+    define({
+      "mu-auth": Auth.Provider,
+      "register-form": RegisterFormElement
+    });
+  </script>
+</head>
+<body class="page">
+  <header>
+    <a href="/app" class="header-brand">
+      <svg class="icon">
+        <use href="/icons/gaming.svg#game"/>
+      </svg>
+      Gaming Hub
+    </a>
+  </header>
+  
+  <main class="auth-page">
+    <mu-auth provides="gaming:auth">
+      <div class="auth-container">
+        <div class="auth-header">
+          <svg class="icon-large">
+            <use href="/icons/gaming.svg#game"/>
+          </svg>
+          <h1>Create Account</h1>
+          <p class="auth-subtitle">Join Gaming Hub and start exploring</p>
+        </div>
+        <div class="card auth-card">
+          <register-form api="/auth/register" redirect="/app">
+            <label>
+              <span>Username</span>
+              <input name="username" autocomplete="username" placeholder="Choose a username" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" name="password" autocomplete="new-password" placeholder="Create a password" />
+            </label>
+          </register-form>
+        </div>
+        <p class="auth-footer">Already have an account? <a href="login.html">Sign in here</a></p>
+      </div>
+    </mu-auth>
+  </main>
+</body>
+</html>
+

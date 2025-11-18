@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import { connect } from "./services/mongo";
 import games from "./routes/games";
 import auth, { authenticateUser } from "./routes/auth";
+import fs from "node:fs/promises";
+import path from "path";
 
 connect("csc437lab");
 
@@ -21,6 +23,14 @@ app.use("/api/games", authenticateUser, games);
 
 app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
+});
+
+// SPA Routes: /app/...
+app.use("/app", (req: Request, res: Response) => {
+  const indexHtml = path.resolve(staticDir, "index.html");
+  fs.readFile(indexHtml, { encoding: "utf8" }).then((html) =>
+    res.send(html)
+  );
 });
 
 app.listen(port, () => {

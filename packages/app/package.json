@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx tsc && npx vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@calpoly/mustang": "^1.0.16",
+    "lit": "^3.3.1"
+  }
+}
