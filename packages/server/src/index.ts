@@ -11,8 +11,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 // Default to serving built proto files, or use STATIC env var if provided
 const staticDir = process.env.STATIC || "../proto/dist";
+// Resolve the static directory path relative to the server source directory
+const resolvedStaticDir = path.resolve(__dirname, "..", staticDir);
 
-app.use(express.static(staticDir));
+app.use(express.static(resolvedStaticDir));
 
 // Middleware:
 app.use(express.json());
@@ -32,7 +34,7 @@ app.get("/", (req: Request, res: Response) => {
 
 // SPA Routes: /app/...
 app.use("/app", (req: Request, res: Response) => {
-  const indexHtml = path.resolve(staticDir, "index.html");
+  const indexHtml = path.resolve(resolvedStaticDir, "index.html");
   fs.readFile(indexHtml, { encoding: "utf8" }).then((html) =>
     res.send(html)
   );
