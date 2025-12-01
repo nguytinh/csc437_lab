@@ -83,10 +83,6 @@ const routes = [
     view: () => html`
       <home-view></home-view>
     `
-  },
-  {
-    path: "/",
-    redirect: "/app"
   }
 ];
 

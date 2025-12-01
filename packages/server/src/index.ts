@@ -25,6 +25,11 @@ app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
 });
 
+// Root path redirects to login/signup
+app.get("/", (req: Request, res: Response) => {
+  res.redirect("/login.html");
+});
+
 // SPA Routes: /app/...
 app.use("/app", (req: Request, res: Response) => {
   const indexHtml = path.resolve(staticDir, "index.html");
