@@ -1,52 +1,52 @@
-import { Auth, Update } from "@calpoly/mustang";
+import { Auth } from "@calpoly/mustang";
 import { Msg } from "./messages";
 import { Model } from "./model";
 import { Game } from "server/models";
 
 export default function update(
   message: Msg,
-  apply: Update.ApplyMap<Model>,
+  model: Model,
   user: Auth.User
-) {
+): Model | [Model, Promise<Msg>] {
   const [command, payload] = message;
   switch (command) {
     case "games/request": {
-      apply((model) => ({ ...model, games: [] }));
-      requestGames(user)
-        .then((games) => ["games/load", { games }] as Msg)
-        .then((msg) => apply(() => ({}), msg));
-      break;
+      return [
+        { ...model, games: [] },
+        requestGames(user)
+          .then((games) => ["games/load", { games }] as Msg)
+      ];
     }
     case "games/load": {
       const { games } = payload;
-      apply((model) => ({ ...model, games }));
-      break;
+      return { ...model, games };
     }
     case "game/request": {
       const { gameId } = payload;
-      apply((model) => ({ ...model, game: undefined }));
-      requestGame(gameId, user)
-        .then((game) => ["game/load", { game }] as Msg)
-        .then((msg) => apply(() => ({}), msg));
-      break;
+      return [
+        { ...model, game: undefined },
+        requestGame(gameId, user)
+          .then((game) => ["game/load", { game }] as Msg)
+      ];
     }
     case "game/load": {
       const { game } = payload;
-      apply((model) => ({ ...model, game }));
-      break;
+      return { ...model, game };
     }
     case "game/save": {
       const { gameId, game, onSuccess, onFailure } = payload;
-      saveGame({ gameId, game }, user)
-        .then((game) => {
-          if (onSuccess) onSuccess();
-          return ["game/load", { game }] as Msg;
-        })
-        .then((msg) => apply(() => ({}), msg))
-        .catch((error: Error) => {
-          if (onFailure) onFailure(error);
-        });
-      break;
+      return [
+        model,
+        saveGame({ gameId, game }, user)
+          .then((game) => {
+            if (onSuccess) onSuccess();
+            return ["game/load", { game }] as Msg;
+          })
+          .catch((error: Error) => {
+            if (onFailure) onFailure(error);
+            throw error;
+          })
+      ];
     }
     default: {
       const unhandled: never = command;
