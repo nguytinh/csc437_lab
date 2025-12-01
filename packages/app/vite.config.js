@@ -1,5 +1,16 @@
 // app/vite.config.js
+import { resolve } from 'path';
+
 export default {
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        login: resolve(__dirname, 'login.html'),
+        newuser: resolve(__dirname, 'newuser.html')
+      }
+    }
+  },
   server: {
     proxy: {
       "/api": "http://localhost:3000",
