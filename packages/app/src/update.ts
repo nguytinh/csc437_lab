@@ -1,13 +1,14 @@
-import { Auth } from "@calpoly/mustang";
+import { Auth, Update } from "@calpoly/mustang";
 import { Msg } from "./messages";
 import { Model } from "./model";
 import { Game } from "server/models";
 
 export default function update(
   message: Msg,
-  model: Model,
+  apply: Update.ApplyMap<Model>,
   user: Auth.User
 ): Model | [Model, Promise<Msg>] {
+  const model = apply({}); // Get current model state
   const [command, payload] = message;
   switch (command) {
     case "games/request": {
