@@ -14,8 +14,6 @@ const staticDir = process.env.STATIC || "../proto/dist";
 // Resolve the static directory path relative to the server source directory
 const resolvedStaticDir = path.resolve(__dirname, "..", staticDir);
 
-app.use(express.static(resolvedStaticDir));
-
 // Middleware:
 app.use(express.json());
 
@@ -27,10 +25,13 @@ app.get("/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
 });
 
-// Root path redirects to login/signup
+// Root path redirects to login/signup - MUST be before static middleware
 app.get("/", (req: Request, res: Response) => {
   res.redirect("/login.html");
 });
+
+// Static files - comes after specific routes
+app.use(express.static(resolvedStaticDir));
 
 // SPA Routes: /app/...
 app.use("/app", (req: Request, res: Response) => {
