@@ -121,9 +121,7 @@ export class GameEditViewElement extends View<Model, Msg> {
       "game/save",
       {
         gameId: decodedGameId,
-        game: event.detail
-      },
-      {
+        game: event.detail,
         onSuccess: () =>
           History.dispatch(this, "history/navigate", {
             href: `/app/games-list`

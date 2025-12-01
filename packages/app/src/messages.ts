@@ -8,8 +8,6 @@ export type Msg =
       {
         gameId: string;
         game: Game;
-      },
-      {
         onSuccess?: () => void;
         onFailure?: (err: Error) => void;
       }

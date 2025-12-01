@@ -8,7 +8,7 @@ export default function update(
   model: Model,
   user: Auth.User
 ): Model | [Model, Promise<Msg>] {
-  const [command, payload, callbacks] = message;
+  const [command, payload] = message;
   switch (command) {
     case "games/request": {
       return [
@@ -34,10 +34,10 @@ export default function update(
       return { ...model, game };
     }
     case "game/save": {
-      const { onSuccess, onFailure } = callbacks || {};
+      const { gameId, game, onSuccess, onFailure } = payload;
       return [
         model,
-        saveGame(payload, user)
+        saveGame({ gameId, game }, user)
           .then((game) => {
             if (onSuccess) onSuccess();
             return ["game/load", { game }] as Msg;
