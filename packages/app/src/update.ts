@@ -7,47 +7,46 @@ export default function update(
   message: Msg,
   apply: Update.ApplyMap<Model>,
   user: Auth.User
-): Model | [Model, Promise<Msg>] {
-  const model = apply({}); // Get current model state
+) {
   const [command, payload] = message;
   switch (command) {
     case "games/request": {
-      return [
-        { ...model, games: [] },
-        requestGames(user)
-          .then((games) => ["games/load", { games }] as Msg)
-      ];
+      apply((model) => ({ ...model, games: [] }));
+      requestGames(user)
+        .then((games) => ["games/load", { games }] as Msg)
+        .then((msg) => apply(() => ({}), msg));
+      break;
     }
     case "games/load": {
       const { games } = payload;
-      return { ...model, games };
+      apply((model) => ({ ...model, games }));
+      break;
     }
     case "game/request": {
       const { gameId } = payload;
-      return [
-        { ...model, game: undefined },
-        requestGame(gameId, user)
-          .then((game) => ["game/load", { game }] as Msg)
-      ];
+      apply((model) => ({ ...model, game: undefined }));
+      requestGame(gameId, user)
+        .then((game) => ["game/load", { game }] as Msg)
+        .then((msg) => apply(() => ({}), msg));
+      break;
     }
     case "game/load": {
       const { game } = payload;
-      return { ...model, game };
+      apply((model) => ({ ...model, game }));
+      break;
     }
     case "game/save": {
       const { gameId, game, onSuccess, onFailure } = payload;
-      return [
-        model,
-        saveGame({ gameId, game }, user)
-          .then((game) => {
-            if (onSuccess) onSuccess();
-            return ["game/load", { game }] as Msg;
-          })
-          .catch((error: Error) => {
-            if (onFailure) onFailure(error);
-            throw error;
-          })
-      ];
+      saveGame({ gameId, game }, user)
+        .then((game) => {
+          if (onSuccess) onSuccess();
+          return ["game/load", { game }] as Msg;
+        })
+        .then((msg) => apply(() => ({}), msg))
+        .catch((error: Error) => {
+          if (onFailure) onFailure(error);
+        });
+      break;
     }
     default: {
       const unhandled: never = command;
