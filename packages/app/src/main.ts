@@ -17,6 +17,7 @@ import { GamesListViewElement } from "./views/games-list-view";
 import { GameViewElement } from "./views/game-view";
 import { GameDetailViewElement } from "./views/game-detail-view";
 import { GameEditViewElement } from "./views/game-edit-view";
+import { ConsoleDetailViewElement } from "./views/console-detail-view";
 import { ConsolesViewElement } from "./views/consoles-view";
 import { GenresViewElement } from "./views/genres-view";
 import { PublishersViewElement } from "./views/publishers-view";
@@ -46,6 +47,12 @@ const routes = [
     path: "/app/games",
     view: () => html`
       <games-view></games-view>
+    `
+  },
+  {
+    path: "/app/consoles/:id",
+    view: (params: Switch.Params) => html`
+      <console-detail-view console-id=${params.id}></console-detail-view>
     `
   },
   {
@@ -102,6 +109,7 @@ define({
   "game-view": GameViewElement,
   "game-detail-view": GameDetailViewElement,
   "game-edit-view": GameEditViewElement,
+  "console-detail-view": ConsoleDetailViewElement,
   "consoles-view": ConsolesViewElement,
   "genres-view": GenresViewElement,
   "publishers-view": PublishersViewElement,

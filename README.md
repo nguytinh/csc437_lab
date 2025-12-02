@@ -62,6 +62,7 @@ app/
 - `/app/games-list/:id/edit` → Edit game form
 - `/app/games/:id` → Individual game detail view (static)
 - `/app/consoles` → Consoles collection view
+- `/app/consoles/:id` → Individual console detail view (static)
 - `/app/genres` → Genres collection view
 - `/app/publishers` → Publishers collection view
 - `/app/series` → Series collection view

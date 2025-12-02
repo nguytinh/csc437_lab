@@ -1,31 +1,34 @@
 :root {
-  /* colors */
-  --color-background-page: #0f172a;
-  --color-background-header: #1e293b;
-  --color-background-content: #0f1419;
-  --color-card-background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  --color-card-background-hover: linear-gradient(135deg, #334155 0%, #475569 100%);
+  /* colors - refined dark mode */
+  --color-background-page: #0a0a0a;
+  --color-background-header: #111111;
+  --color-background-content: #000000;
   
-  --color-text: #f1f5f9;
-  --color-text-header: #e2e8f0;
-  --color-text-muted: #94a3b8;
+  /* Glassmorphism / Subtle Gradient Cards */
+  --color-card-background: linear-gradient(145deg, #161616 0%, #1a1a1a 100%);
+  --color-card-background-hover: linear-gradient(145deg, #1a1a1a 0%, #202020 100%);
   
+  --color-text: #ffffff;
+  --color-text-header: #f0f0f0;
+  --color-text-muted: #a1a1aa; /* Neutral gray */
+  
+  /* Professional Blue Accent */
   --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-accent-light: #60a5fa;
+  --color-accent-hover: #60a5fa;
+  --color-accent-light: #93c5fd;
   
   --color-link: #60a5fa;
-  --color-link-hover: #3b82f6;
+  --color-link-hover: #93c5fd;
   
-  --color-border: #334155;
-  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-border: #27272a; /* Subtle border */
+  --color-shadow: rgba(0, 0, 0, 0.7);
   
   /* spacing - existing */
-  --space-xs: 5px;
-  --space-sm: 10px;
-  --space-md: 20px;
-  --space-lg: 30px;
-  --space-xl: 40px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
   
   /* layout spacing tokens */
   --gap-xs: 0.5rem;
@@ -34,20 +37,20 @@
   --gap-lg: 2rem;
   --gap-xl: 3rem;
   
-  --padding-card: var(--space-md);
-  --padding-section: var(--space-lg);
+  --padding-card: var(--space-lg);
+  --padding-section: var(--space-xl);
   
-  /* fonts */
-  --font-family: "Outfit", sans-serif;
-  --font-family-heading: "Ramabhadra", sans-serif;
+  /* fonts - cleaner stack */
+  --font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-heading: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-size-base: 16px;
-  --font-size-heading: 24px;
-  --font-size-subheading: 20px;
+  --font-size-heading: 2.5rem;
+  --font-size-subheading: 1.5rem;
   
   /* grid system */
   --grid-columns: 12;
   --grid-gap: var(--gap-md);
-  --content-max-width: 1800px;
+  --content-max-width: 1400px;
   
   /* breakpoints */
   --breakpoint-mobile: 480px;
@@ -56,26 +59,26 @@
   --breakpoint-wide: 1440px;
 }
 
-/* Light mode overrides */
+/* Light mode overrides - Clean & Crisp */
 body.light-mode {
-  --color-background-page: #f8fafc;
+  --color-background-page: #fafafa;
   --color-background-header: #ffffff;
   --color-background-content: #ffffff;
-  --color-card-background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-  --color-card-background-hover: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   
-  --color-text: #0f172a;
-  --color-text-header: #1e293b;
-  --color-text-muted: #64748b;
+  --color-card-background: #ffffff;
+  --color-card-background-hover: #f8fafc;
   
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-accent-light: #60a5fa;
+  --color-text: #18181b;
+  --color-text-header: #09090b;
+  --color-text-muted: #52525b;
+  
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-light: #3b82f6;
   
   --color-link: #2563eb;
-  --color-link-hover: #1e40af;
+  --color-link-hover: #1d4ed8;
   
-  --color-border: #e2e8f0;
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-border: #e4e4e7;
+  --color-shadow: rgba(0, 0, 0, 0.05);
 }
-
